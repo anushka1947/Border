@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Command // DEF-01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="logo">BORDER SURVEILLANCE COMMAND // V.2.0</div>
+        </div>
+        <div class="header-right">
+            <div class="stat-box">THREAT COUNT: <span id="intrusion-count">0</span></div>
+            <div class="system-status">STATUS: <span id="sys-status">OPERATIONAL</span></div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <section class="panel left-panel">
+            <h2>:: SECTOR STATUS ::</h2>
+            <div id="sector-container">
+                </div>
+        </section>
+
+        <section class="panel center-panel">
+            <h2>:: TACTICAL GRID ::</h2>
+            <div class="map-container">
+                <div class="grid-overlay"></div> <div class="radar">
+                    <div class="sweep"></div>
+                </div>
+                <div id="intrusion-markers"></div>
+            </div>
+        </section>
+
+        <section class="panel right-panel">
+            <h2>:: SYSTEM LOGS ::</h2>
+            <div id="log-container">
+                <p class="log-entry">>> INIT_SEQUENCE_START</p>
+                <p class="log-entry">>> CONNECTED TO SAT_LINK_04</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
