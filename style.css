@@ -1,0 +1,204 @@
+/* Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; /* Strict Monospace */
+    text-transform: uppercase; /* Force uppercase for military look */
+}
+
+body {
+    background-color: #020202; 
+    color: #00ff99; 
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 2px solid #1a4d3a;
+    background: #050a08;
+    height: 60px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #00ff99;
+}
+
+.header-right {
+    display: flex;
+    gap: 30px;
+    font-size: 0.9rem;
+}
+
+.stat-box {
+    color: #ff3333; /* Red text for threats */
+    font-weight: bold;
+}
+
+#sys-status {
+    color: #00ff99;
+}
+
+/* Dashboard Grid Layout */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; 
+    height: calc(100vh - 60px);
+    gap: 4px;
+    padding: 5px;
+    background: #000;
+}
+
+.panel {
+    border: 1px solid #1a4d3a;
+    background: #050a08;
+    padding: 10px;
+    overflow-y: auto;
+    position: relative;
+}
+
+h2 {
+    background: #0f1f18;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-align: center;
+    border: 1px solid #1a4d3a;
+    color: #00ff99;
+}
+
+/* Sector Cards */
+.sector-card {
+    background: #000;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #1a4d3a;
+    border-left: 4px solid #00ff99; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.sector-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+/* Alert State */
+.sector-card.alert {
+    border-color: #ff3333;
+    border-left: 4px solid #ff3333; 
+    background: #1a0505;
+    box-shadow: inset 0 0 10px #ff333344;
+}
+
+/* Acknowledge Button - Utilitarian Style */
+.ack-btn {
+    background: #ff3333;
+    color: #000;
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+.ack-btn:hover {
+    background: #fff;
+}
+
+/* Map / Radar */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    background: #000;
+    border: 1px solid #1a4d3a;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Tactical Grid Lines */
+.grid-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(#1a4d3a33 1px, transparent 1px),
+        linear-gradient(90deg, #1a4d3a33 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+}
+
+.radar {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 1px dashed #1a4d3a;
+    box-shadow: 0 0 20px #1a4d3a22;
+    z-index: 2;
+}
+
+.radar .sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff99);
+    transform-origin: left center;
+    animation: radarSpin 4s linear infinite;
+    z-index: 3;
+    box-shadow: 0 0 10px #00ff99;
+}
+
+@keyframes radarSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Markers */
+.intrusion-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ff3333;
+    box-shadow: 0 0 8px #ff3333;
+    z-index: 10;
+}
+
+/* Logs */
+.log-entry {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    padding-left: 5px;
+    border-left: 2px solid #1a4d3a;
+    opacity: 0.8;
+}
+.log-alert { 
+    color: #ff3333; 
+    border-left: 2px solid #ff3333;
+    font-weight: bold;
+    opacity: 1;
+}
+.log-success { 
+    color: #00ff99; 
+    border-left: 2px solid #00ff99;
+}
